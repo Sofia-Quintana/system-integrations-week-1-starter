@@ -1,0 +1,88 @@
+[
+  {
+    "active": "true",
+    "imgSrc": "specs/1.png",
+    "cardTitle": "1. Example Layout and App",
+    "cardText": "<p>In this slide you se an example of the app required from you during week 1 of the System Integrations module. It is developed using <a href=\"https://expressjs.com/\" target=\"blank\">Express</a>. In the following slides you will see more details required in your project, demonstrated through it. Your solution is not required to look exactly like that, but what <b>is</b> expected is that all the specified functionality is in place.</p><p>Also, to be clear, <a href=\"https://developer.chrome.com/docs/devtools/overview/\" target=\"blank\">the developer tools</a> UI is being used (the dark portion to the right of the window).</p><p>Please reach out to your instructor if you have any doubts.</p>"
+  },
+  {
+    "imgSrc": "specs/2.png",
+    "cardTitle": "2. Task being added",
+    "cardText": "<p>Shown above, when visiting the home address of the server, a UI which relies on <a href=\"https://ejs.co/\" target=\"blank\">EJS</a> templating and <a href=\"https://getbootstrap.com/\" target=\"blank\">Bootstrap</a> is shown.</p><p>You have the final word on the layout, though. Keep in mind the <i>required</i> feature: providing a means to input a new task.</p>"
+  },
+  {
+    "imgSrc": "specs/3.png",
+    "cardTitle": "3. Task added",
+    "cardText": "<p>After clicking the add button, the task is added to the to do list. Notice the action buttons to the right, a pencil - for editing - and a trash bin - for deleting -. Also notice that there is a checkbox to the left, which will enable the user to mark a task as <u>done</u> or <u>pending</u>.</p>"
+  },
+  {
+    "imgSrc": "specs/4.png",
+    "cardTitle": "4. Request when creating a task",
+    "cardText": "<p>With the help of the <a href=\"https://developer.chrome.com/docs/devtools/overview/\" target=\"blank\">the developer tools</a>, in the Network tab and the Headers subtab, it can be seen that a GET request was sent, and a response 200 status was received.</p>"
+  },
+  {
+    "imgSrc": "specs/5.png",
+    "cardTitle": "5. Request payload when creating a task",
+    "cardText": "<p>In the Payload subtab, the request body shows the data that was sent to the server. This structure is just an example, your solution can vary, according to your architectural choices, however keep in mind that the stored data in the server has to allow knowing which tasks are in the to do list, <u>even if you refresh the page</u>.</p>"
+  },
+  {
+    "imgSrc": "specs/6.png",
+    "cardTitle": "6. More tasks are added",
+    "cardText": "<p>This slide is only to demonstrate more tasks were added, the requests sent to the server are very similar to the one shown in detail in the previous slides. What changes is the task description data, and status information, as well as an id.</p>"
+  },
+  {
+    "imgSrc": "specs/7.png",
+    "cardTitle": "7. Clicking in the checkbox to the left",
+    "cardText": "<p>When the checkbox to the left of the task description is clicked, the task is marked as done in the UI, both by showing the checkbox as checked, and by crossing out the task description. This also has the effect of <i>disabling the pencil click event, so that done tasks cannot be edited</i>.</p>"
+  },
+  {
+    "imgSrc": "specs/8.png",
+    "cardTitle": "8. Clicking in a checked checkbox",
+    "cardText": "<p>This will mark the task as <i>pending</i>, which also removes the crossing of the task description and enables editing the task.</p>"
+  },
+  {
+    "imgSrc": "specs/9.png",
+    "cardTitle": "9. Request when marking a task as done",
+    "cardText": "<p>Now the request sent to the server when the task is marked as done shows that a PUT request was sent, and a response status of 200 (meaning OK) was received.</p>"
+  },
+  {
+    "imgSrc": "specs/10.png",
+    "cardTitle": "10. Request body when marking task as done",
+    "cardText": "<p>The request body shows that the status is being sent, also the id of the task to update is needed. Your implementation <i>has to be able</i> to toggle task status and give the user visual feedback on it.</p>"
+  },
+  {
+    "imgSrc": "specs/11.png",
+    "cardTitle": "11. Editing a task",
+    "cardText": "<p>A task <u>which is pending</u> may be edited somehow. In the example this happens when a user clicks the pencil to the right of the task description. When that event is detected, the button at the bottom changes its caption from &quotAdd&quot to &quotUpdate&quot. Then the description may be updated and submitted.</p>"
+  },
+  {
+    "imgSrc": "specs/12.png",
+    "cardTitle": "12. Change the task description",
+    "cardText": "<p>This slide shows that the task description was changed (&quotOriginal&quot is removed and &quotNext&quot is added instead).</p>"
+  },
+  {
+    "imgSrc": "specs/13.png",
+    "cardTitle": "13. Description change request",
+    "cardText": "<p>Upon update submition, the request sent to the server is of type PUT, like the picture shows.</p>"
+  },
+  {
+    "imgSrc": "specs/14.png",
+    "cardTitle": "14. Deleting a task",
+    "cardText": "<p>A task that is <u>either done or pending</u> may be deleted. In the example app, this is triggered by clicking on the trash bin to the right of the task description. This sends a DELETE request to the server. <i>It is required</i> that your server keeps track in memory of the tasks in the to do list and their status, even between refreshes, this should be reflected in the UI. A proposed solution is coming up in the next slides."
+  },
+  {
+    "imgSrc": "specs/15.png",
+    "cardTitle": "15. Refreshing the page in the browser",
+    "cardText": "<p>In this slide you can see the effect on the Network tab when the page is refreshed. A bunch of requests are marked in the log, but of more importance is to note the <i>result</i>, which shows the UI <i>still showing the information stored in the server's memory</i>. The details of the implementation are yours to decide, however <i>it is required that your app is able to handle refreshing</i>.</p>"
+  },
+  {
+    "imgSrc": "specs/16.png",
+    "cardTitle": "16. Request upon refresh",
+    "cardText": "<p>This slide shows a <i>proposed</i> solution to the <i>required</i> feature of <u>supporting refreshing while maintaining the list updated with the information from the server</u>. When the page is loaded, it will send a GET request, which gets the list as stored in the server's memory, which enables the frontend to modify the task list accordingly.</p>"
+  },
+  {
+    "imgSrc": "specs/17.png",
+    "cardTitle": "17. Console log upon refresh",
+    "cardText": "<p>In this example implementation of the required features, a console log is kept in the frontend to show that upon a refresh, all current tasks stored in the server are requested with a GET to the <i>/tasks</i> endpoint.</p>"
+  }
+]
